@@ -1,0 +1,70 @@
+.loginStyle {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../dist/image.jpeg");
+    background-size: auto;
+  }
+
+  .headLine {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: -10%;
+    flex: 1;
+    /* background-color: #fff; */
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .headLine h1 {
+    margin: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 55px;
+    line-height: 1.5;
+    color: black;
+  }
+  
+  .headLine p {
+    font-size: 20px;
+    /* line-height: 1.5; */
+    color:black;
+  }
+  
+  .login-container {
+    margin-right: 100px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .login-container h2 {
+    margin-top: 0;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .login-form button {
+    margin-left: 35%;
+    margin-right: 35%;
+    width: 30%;
+    padding: 10px;
+    background-color: #3407b1;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: medium;
+    font-weight: bold;
+  }
