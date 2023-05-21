@@ -28,6 +28,10 @@ function Expenses(props) {
         x.date.getMonth().toString() === filterMonth
     );
   }
+
+  const EditDeleteHandler = (editDeleteObject) => {
+    props.onEditDelete(editDeleteObject);
+  };
   return (
     <div>
       <Card className="expenses">
@@ -37,12 +41,17 @@ function Expenses(props) {
           onChangeFilterYear={handleFilterYear}
           onChangeFilterMonth={handleFilterMonth}
         />
-        
+
         {/* <ExpenseChart expenses={filteredExpenses} /> */}
         {filteredExpenses.length === 0 ? (
           <div></div>
         ) : (
-          <ExpenseChart maxVal = {20000} year = {filterYear} month = {filterMonth} expenses={filteredExpenses} />
+          <ExpenseChart
+            maxVal={20000}
+            year={filterYear}
+            month={filterMonth}
+            expenses={filteredExpenses}
+          />
         )}
 
         {filteredExpenses.length === 0 ? (
@@ -50,7 +59,9 @@ function Expenses(props) {
         ) : (
           filteredExpenses.map((exp) => (
             <ExpenseItem
+              onEdit={EditDeleteHandler}
               key={exp.id}
+              id={exp.id}
               date={exp.date}
               title={exp.title}
               amount={exp.amount}
