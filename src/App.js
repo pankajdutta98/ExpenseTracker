@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Expenses from "./Components/Expenses/Expenses";
+import LoaderA from "./Components/Loaders/LoaderA";
 import LoginPage from "./Components/Login/LoginPage";
 import NewExpense from "./Components/NewExpenses/NewExpense";
 
@@ -55,10 +56,11 @@ function App() {
 
   async function addExpenseHandler(enteredExpense) {
     const dataModel = {
+      txnDate: enteredExpense.date,
       title: enteredExpense.title,
       amount: enteredExpense.amount,
       category: enteredExpense.category,
-    }
+    };
 
     const response = await fetch(
       "https://xpensetracker.azurewebsites.net/api/ExpenseModels/CreateNewExpense",
@@ -67,8 +69,8 @@ function App() {
         method: "POST",
         body: JSON.stringify(dataModel),
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       }
     );
     const data = await response.json();
@@ -91,13 +93,15 @@ function App() {
 
   return (
     <div>
+
       <NewExpense onAddExpense={addExpenseHandler} />
       {expenses != null && expenses.length > 0 ? (
         <div>
           <Expenses items={expenses} />
         </div>
       ) : (
-        <p>Expenses Not Found!!!</p>
+        // <p>Expenses Not Found!!!</p>
+        <LoaderA></LoaderA>
       )}
       {/* <LoginPage ></LoginPage> */}
     </div>
